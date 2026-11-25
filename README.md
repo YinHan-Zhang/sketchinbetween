@@ -22,7 +22,7 @@ All media links are relative, so the site works under a GitHub Pages project sub
 
 ## GitHub Pages
 
-Push the project to `YinHan-Zhang/sketchinbtween` on branch `main`. In the repository's **Settings → Pages**, select **GitHub Actions** as the source. `.github/workflows/pages.yml` validates the media catalog, packages only the website into `dist/`, and deploys it through the official Pages actions.
+Push the project to `YinHan-Zhang/sketchinbetween` on branch `main`. In the repository's **Settings → Pages**, select **GitHub Actions** as the source. `.github/workflows/pages.yml` validates the media catalog, packages only the website into `dist/`, and deploys it through the official Pages actions.
 
 ```sh
 python3 scripts/build.py
