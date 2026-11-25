@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: ${{ steps.retry.outputs.page_url || steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v6
       - name: Validate assets and package static website
@@ -26,4 +26,12 @@ jobs:
           path: dist
       - name: Deploy
         id: deployment
+        continue-on-error: true
+        uses: actions/deploy-pages@v4
+      - name: Allow artifact metadata to propagate
+        if: steps.deployment.outcome == 'failure'
+        run: sleep 10
+      - name: Retry deployment after artifact propagation
+        if: steps.deployment.outcome == 'failure'
+        id: retry
         uses: actions/deploy-pages@v4
