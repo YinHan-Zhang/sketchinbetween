@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#151619">
+  <meta name="theme-color" content="#ffffff">
   <title>SketchIn-between — Learning Motion Correspondence</title>
   <meta name="description" content="Learning Motion Correspondence for Generative Line-Art In-between. Explore sketch animation through scroll-controlled frames, synchronized method comparisons, and ablation studies.">
   <meta property="og:title" content="SketchIn-between"><meta property="og:description" content="Two sketches. A world of motion."><meta property="og:type" content="website"><meta property="og:image" content="assets/show/case18/poster.webp">
@@ -13,13 +13,18 @@
   <div class="reading-progress" aria-hidden="true"><i></i></div>
   <header class="site-header">
     <a class="wordmark" href="#home" aria-label="SketchIn-between home"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M4 25 13 5l5 13 10-9-8 19-7-9Z"/></svg>Sketch<span>In-between</span></a>
-    <nav aria-label="Main navigation"><a href="#experience">Experience</a><a href="#gallery">Gallery</a><a href="#method">Method</a><a href="#comparison">Experiments</a></nav>
+    <nav aria-label="Main navigation"><a href="#demo">Demo video</a><a href="#experience">Experience</a><a href="#gallery">Gallery</a><a href="#method">Method</a><a href="#comparison">Experiments</a></nav>
     <a class="header-link" href="https://github.com/YinHan-Zhang/sketchinbetween" target="_blank" rel="noopener">GitHub <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.86c-2.78.6-3.37-1.18-3.37-1.18-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.89 1.53 2.34 1.09 2.91.83.09-.65.35-1.09.64-1.34-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02A9.6 9.6 0 0 1 12 6.82a9.6 9.6 0 0 1 2.5.34c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.94.36.31.68.92.68 1.85V21c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg></a>
   </header>
   <main>
     <section class="hero section-shell" id="home">
       <div class="hero-topline"><span class="eyebrow"><i></i> Generative line-art in-betweening</span><span class="mono hero-note">An interactive research showcase</span></div>
       <div class="hero-copy"><h1>Two sketches.<br>A world of <em>motion.</em><svg class="scribble" viewBox="0 0 500 30" aria-hidden="true"><path d="M4 18Q180-9 492 11M22 26Q235 1 460 23"/></svg></h1><div class="hero-description"><p>Learning Motion Correspondence<br>for Generative Line-Art In-between</p><p class="muted">From a first sketch to a last sketch.<br>Discover what happens in between.</p><a class="pill primary" href="#experience">Explore the motion <span class="scroll-icon" aria-hidden="true"></span></a></div></div>
+      <div class="school-logos" aria-label="Participating institutions">
+        <img class="school-hkust" src="assets/branding/hkust.png" alt="The Hong Kong University of Science and Technology" width="944" height="310">
+        <span class="school-divider" aria-hidden="true"></span>
+        <img class="school-scut" src="assets/branding/scut.png" alt="South China University of Technology" width="680" height="626">
+      </div>
       <div class="hero-art" aria-label="Input sketches and generated animation">
         <div class="orbital" aria-hidden="true"></div>
         <figure class="endpoint hero-first"><figcaption><span class="tiny-dot"></span> First sketch <span class="mono">t = 0</span></figcaption><img src="assets/show/case18/first.jpg" alt="First line-art sketch of a character" fetchpriority="high"></figure>
@@ -28,6 +33,14 @@
         <span class="art-note mono">A little line.<br>A whole lot of possibility.</span>
       </div>
       <div class="hero-bottom mono"><span>SCROLL TO FILL THE IN-BETWEEN</span><span>SketchIn-between <span class="pink">/</span> Research demo</span></div>
+    </section>
+
+    <section class="demo-section section-shell" id="demo" aria-labelledby="demo-title">
+      <div class="section-heading"><div><p class="eyebrow pink">The full picture</p><h2 id="demo-title">Demo video</h2></div><p class="section-intro">Watch the project overview, generated results, method comparisons, and ablation studies.</p></div>
+      <figure class="demo-player">
+        <video id="demo-video" controls playsinline preload="metadata" poster="assets/demo-poster.jpg" aria-label="SketchIn-between full project demo video"><source src="assets/demo.mp4" type="video/mp4">Your browser does not support embedded video. <a href="assets/demo.mp4">Download the demo video</a>.</video>
+        <figcaption><span>SketchIn-between</span><span class="mono">FULL PROJECT DEMO · 2:52</span></figcaption>
+      </figure>
     </section>
 
     <section class="experience" id="experience" aria-labelledby="experience-title">

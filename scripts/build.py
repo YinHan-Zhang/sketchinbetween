@@ -18,6 +18,9 @@ for group,scenes in manifest.items():
   if 'scrollFrames' in scene:
    assert len(scene['scrollFrames'])==scene['videos'][scene['primary']]['frames'], f"Scroll frames missing: {scene['id']}"
    assert all((ROOT/p).is_file() for p in scene['scrollFrames'])
+for name in ['assets/demo.mp4','assets/demo-poster.jpg','assets/branding/hkust.png','assets/branding/scut.png']:
+ assert (ROOT/name).is_file(), f'Missing presentation asset: {name}'
+ assert (ROOT/name).stat().st_size<95*1024*1024, f'Asset exceeds GitHub file limit: {name}'
 out=ROOT/'dist';out.mkdir(exist_ok=True)
 for name in ['index.html','app.js','style.css','favicon.svg']:
  shutil.copy2(ROOT/name,out/name)

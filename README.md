@@ -12,6 +12,8 @@ Open http://localhost:4173. The page needs HTTP because the media catalog is fet
 
 ## Experience
 
+The page uses a white background throughout and displays the supplied HKUST and SCUT school marks on the cover. The complete 2:52 demo video appears directly after the cover, before “The space between two frames,” with native playback controls and audio. Its H.264/AAC web copy is about 10 MB; the original local HEVC video is left unchanged.
+
 - Scroll through 46 individually decoded frames, forward or backward. Three scenes, manual frame slider, and playback controls are available.
 - Explore 34 cases with category filters, viewport-aware muted playback, and a modal inspector with generated / ground-truth synchronization.
 - Compare 11 supplied result / baseline variants across 8 scenes, synchronized by normalized time, with playback speed controls.

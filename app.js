@@ -355,6 +355,7 @@ function renderGallery() {
 
 function pauseBackground() {
   automaticVideos.forEach(v => v.pause());
+  $('#demo-video')?.pause();
   groups.forEach(g => g.pause());
   scrub?.stop();
 }
@@ -483,6 +484,16 @@ async function init() {
     manifest = await response.json();
     const heroScene = manifest.show.find(scene => scene.id === 'case18');
     const hero = $('#hero-video'); hero.dataset.src = heroScene.videos[heroScene.primary].src; setAutoplay(hero);
+    const demoVideo = $('#demo-video');
+    demoVideo.addEventListener('play', () => {
+      automaticVideos.forEach(video => video.pause());
+      groups.forEach(group => group.pause());
+      scrub?.stop();
+    });
+    const demoObserver = new IntersectionObserver(entries => {
+      if (!entries[0].isIntersecting) demoVideo.pause();
+    });
+    demoObserver.observe(demoVideo);
     initScrub(); initDialog(); renderGallery(); initComparison(); initAblation();
     $('#gallery-filters').addEventListener('click', event => {
       const button = event.target.closest('button[data-filter]');
@@ -497,7 +508,7 @@ async function init() {
     const navObserver = new IntersectionObserver(entries => {
       entries.forEach(entry => { if (entry.isIntersecting) $$('nav a').forEach(a => a.classList.toggle('active', a.hash === `#${entry.target.id}`)); });
     }, { rootMargin: '-15% 0px -60% 0px' });
-    ['experience', 'gallery', 'method', 'comparison'].forEach(id => navObserver.observe($(`#${id}`)));
+    ['demo', 'experience', 'gallery', 'method', 'comparison'].forEach(id => navObserver.observe($(`#${id}`)));
     updateScroll();
     document.documentElement.dataset.ready = 'true';
   } catch (error) {
