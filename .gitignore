@@ -1,0 +1,5 @@
+.DS_Store
+*.key
+keynote-content.json
+dist/
+__pycache__/

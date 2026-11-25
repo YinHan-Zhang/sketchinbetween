@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#151619">
+  <title>SketchIn-between — Learning Motion Correspondence</title>
+  <meta name="description" content="Learning Motion Correspondence for Generative Line-Art In-between. Explore sketch animation through scroll-controlled frames, synchronized method comparisons, and ablation studies.">
+  <meta property="og:title" content="SketchIn-between"><meta property="og:description" content="Two sketches. A world of motion."><meta property="og:type" content="website"><meta property="og:image" content="assets/show/case18/poster.webp">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg"><link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="reading-progress" aria-hidden="true"><i></i></div>
+  <header class="site-header">
+    <a class="wordmark" href="#home" aria-label="SketchIn-between home"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M4 25 13 5l5 13 10-9-8 19-7-9Z"/></svg>Sketch<span>In-between</span></a>
+    <nav aria-label="Main navigation"><a href="#experience">Experience</a><a href="#gallery">Gallery</a><a href="#method">Method</a><a href="#comparison">Experiments</a></nav>
+    <a class="header-link" href="https://github.com/YinHan-Zhang/sketchinbtween" target="_blank" rel="noopener">GitHub <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.86c-2.78.6-3.37-1.18-3.37-1.18-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.89 1.53 2.34 1.09 2.91.83.09-.65.35-1.09.64-1.34-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02A9.6 9.6 0 0 1 12 6.82a9.6 9.6 0 0 1 2.5.34c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.94.36.31.68.92.68 1.85V21c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg></a>
+  </header>
+  <main>
+    <section class="hero section-shell" id="home">
+      <div class="hero-topline"><span class="eyebrow"><i></i> Generative line-art in-betweening</span><span class="mono hero-note">An interactive research showcase</span></div>
+      <div class="hero-copy"><h1>Two sketches.<br>A world of <em>motion.</em><svg class="scribble" viewBox="0 0 500 30" aria-hidden="true"><path d="M4 18Q180-9 492 11M22 26Q235 1 460 23"/></svg></h1><div class="hero-description"><p>Learning Motion Correspondence<br>for Generative Line-Art In-between</p><p class="muted">From a first sketch to a last sketch.<br>Discover what happens in between.</p><a class="pill primary" href="#experience">Explore the motion <span class="scroll-icon" aria-hidden="true"></span></a></div></div>
+      <div class="hero-art" aria-label="Input sketches and generated animation">
+        <div class="orbital" aria-hidden="true"></div>
+        <figure class="endpoint hero-first"><figcaption><span class="tiny-dot"></span> First sketch <span class="mono">t = 0</span></figcaption><img src="assets/show/case18/first.jpg" alt="First line-art sketch of a character" fetchpriority="high"></figure>
+        <figure class="hero-result"><figcaption><span><i></i> The in-between</span><span class="mono">GENERATED MOTION</span></figcaption><video id="hero-video" muted loop playsinline preload="metadata" poster="assets/show/case18/poster.webp" aria-label="Generated line-art character animation"></video><div class="film-ticks" aria-hidden="true"></div><span class="result-sticker">Sketches<br><em>come alive.</em></span></figure>
+        <figure class="endpoint hero-last"><figcaption>Last sketch <span class="mono">t = 1</span></figcaption><img src="assets/show/case18/last.jpg" alt="Last line-art sketch of a character"></figure>
+        <span class="art-note mono">A little line.<br>A whole lot of possibility.</span>
+      </div>
+      <div class="hero-bottom mono"><span>SCROLL TO FILL THE IN-BETWEEN</span><span>SketchIn-between <span class="pink">/</span> Research demo</span></div>
+    </section>
+
+    <section class="experience" id="experience" aria-labelledby="experience-title">
+      <div class="experience-sticky section-shell">
+        <div class="section-heading"><div><p class="eyebrow pink">The space between two frames</p><h2 id="experience-title">You set the pace.<br><span class="muted">We fill the frames.</span></h2></div><p class="section-intro">Scroll to travel through the generated motion.<br>Go forward, rewind, or inspect a single frame.</p></div>
+        <div class="experience-toolbar"><div class="segmented" id="scroll-cases" aria-label="Scroll demo scene"></div><span class="mono scroll-instruction">SCROLL TO ANIMATE <span aria-hidden="true">↕</span></span></div>
+        <div class="scrub-stage">
+          <figure class="scrub-endpoint"><img id="scrub-first" alt="First input sketch"><figcaption><span>First sketch</span><span class="mono">INPUT</span></figcaption></figure>
+          <figure class="scrub-main"><div class="frame-label"><span class="live-label">Generated in-between</span><span class="mono" id="frame-counter">FRAME 01 / 46</span></div><canvas id="scrub-canvas" width="832" height="480" aria-label="Generated animation frame controlled by scroll"></canvas><div class="scrub-loading" id="scrub-loading" role="status">Loading frames…</div></figure>
+          <figure class="scrub-endpoint"><img id="scrub-last" alt="Last input sketch"><figcaption><span>Last sketch</span><span class="mono">INPUT</span></figcaption></figure>
+        </div>
+        <div class="timeline"><span class="mono">0.00</span><div class="timeline-track"><div class="timeline-ticks" aria-hidden="true"></div><input id="scrub-range" type="range" min="0" max="45" value="0" aria-label="Inspect generated frame"><span class="timeline-fill" aria-hidden="true"></span></div><span class="mono">1.00</span></div>
+        <div class="experience-foot"><p><span class="pink">Two input sketches.</span> A continuous sequence of generated frames.</p><button class="text-button" id="scrub-play">Play sequence</button></div>
+      </div>
+    </section>
+
+    <section class="gallery section-shell" id="gallery">
+      <div class="section-heading"><div><p class="eyebrow pink">The motion collection</p><h2>Every line has<br><em>somewhere to go.</em></h2></div><p class="section-intro">Expressions, gestures, shared scenes, and shifts in perspective. Explore the full collection of generated results.</p></div>
+      <div class="gallery-toolbar"><div class="filters" id="gallery-filters" aria-label="Filter cases"><button class="active" data-filter="all">All motion <span id="all-count"></span></button><button data-filter="character">Character</button><button data-filter="multi">Multi-object</button><button data-filter="perspective">Perspective</button></div><span class="mono" id="gallery-count"></span></div>
+      <div class="gallery-grid" id="gallery-grid" aria-live="polite"></div>
+      <button class="pill load-more" id="load-more">Explore more cases <span class="mono" id="remaining-count"></span></button>
+      <p class="gallery-hint">Click a case to inspect the inputs, generated result, and ground truth.</p>
+    </section>
+
+    <section class="method-section" id="method"><div class="section-shell">
+      <div class="section-heading"><div><p class="eyebrow">Behind the in-between</p><h2>Learn the motion.<br><em>Transport the detail.</em></h2></div><p class="section-intro">Learning motion correspondence connects the two endpoint sketches and guides the generation of intermediate line art.</p></div>
+      <div class="method-steps"><article><span class="method-symbol" aria-hidden="true">⌁</span><h3>Predict the trajectory</h3><p>Estimate endpoint correspondences and learn the paths that connect them through time.</p></article><article><span class="method-symbol" aria-hidden="true">⤨</span><h3>Transport features</h3><p>Carry features from both endpoint sketches along predicted trajectories, with a straight-through estimator.</p></article><article><span class="method-symbol" aria-hidden="true">▧</span><h3>Generate the in-between</h3><p>Use trajectory-guided attention in the diffusion transformer to synthesize the intermediate frames.</p></article></div>
+      <button class="diagram-button" id="open-diagram" aria-label="Expand method architecture diagram"><img src="assets/fig_framework.webp" alt="Joint framework: trajectory predictor, bidirectional feature transport, straight-through estimator, and motion selected attention" loading="lazy"><span>Inspect the architecture <b>+</b></span></button>
+      <p class="method-caption">Architecture overview from the project materials.</p>
+    </div></section>
+
+    <section class="comparison section-shell" id="comparison">
+      <div class="section-heading"><div><p class="eyebrow pink">Side by side</p><h2>Same sketches.<br><em>Different motion.</em></h2></div><p class="section-intro">Compare methods at the same normalized point in time. Scrub together, slow down, and inspect the line structures.</p></div>
+      <div class="experiment-toolbar"><label>Scene <select id="comparison-scene" aria-label="Comparison scene"></select></label><label>Playback <select id="comparison-speed" aria-label="Comparison speed"><option value="1">1× speed</option><option value="0.5">0.5× speed</option><option value="0.25">0.25× speed</option></select></label></div>
+      <div class="comparison-inputs" id="comparison-inputs"></div>
+      <div class="compare-grid" id="compare-grid"></div>
+      <div class="transport"><button class="pill light" id="comparison-play">Play together</button><input id="comparison-range" type="range" min="0" max="1000" value="0" aria-label="Comparison timeline"><span class="mono" id="comparison-time">0%</span><button class="text-button" id="comparison-reset">Reset</button></div>
+      <p class="experiment-note">Playback uses normalized time because source clips have different lengths. Dense and sparse denote the supplied result variants.</p>
+    </section>
+
+    <section class="ablation-section section-shell" id="ablation">
+      <div class="section-heading"><div><p class="eyebrow pink">Take it apart</p><h2>What makes<br><em>the motion work?</em></h2></div><p class="section-intro">Explore the ablations from the presentation. Switch a component and compare it with the full model.</p></div>
+      <div class="experiment-toolbar"><label>Scene <select id="ablation-scene" aria-label="Ablation scene"></select></label><label>Variant <select id="ablation-variant" aria-label="Ablation variant"></select></label></div>
+      <div class="ablation-grid" id="ablation-grid"></div>
+      <div class="transport"><button class="pill light" id="ablation-play">Play together</button><input id="ablation-range" type="range" min="0" max="1000" value="0" aria-label="Ablation timeline"><span class="mono" id="ablation-time">0%</span><button class="text-button" id="ablation-reset">Reset</button></div>
+      <p id="ablation-explanation" class="experiment-note"></p>
+    </section>
+    <section class="closing section-shell"><p class="eyebrow">SketchIn-between</p><h2>Keep the lines.<br><em>Find the motion.</em></h2><a class="pill primary" href="#experience">Experience it again <span class="scroll-icon" aria-hidden="true"></span></a><div class="closing-rule"></div><div class="footer"><p>Learning Motion Correspondence<br>for Generative Line-Art In-between</p><a href="https://github.com/YinHan-Zhang/sketchinbtween" target="_blank" rel="noopener">Project on GitHub</a><a href="#home">Back to top</a></div></section>
+  </main>
+  <dialog id="case-dialog"><div class="dialog-top"><span class="mono">MOTION INSPECTOR</span><button class="dialog-close" aria-label="Close inspector">Close <span>×</span></button></div><div id="dialog-content"></div></dialog>
+  <div id="load-error" class="load-error" hidden role="alert">The collection could not load. Please refresh the page to try again.</div>
+  <noscript><div class="load-error">Enable JavaScript to explore the interactive demos and video collection.</div></noscript>
+</body>
+</html>
